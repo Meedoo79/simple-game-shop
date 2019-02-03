@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+     <script language="JavaScript">
+
+         var PayPalWindow = null;
+         function OpenPayPalWindow(url) {
+
+             if ((!PayPalWindow) || PayPalWindow.closed)
+                 PayPalWindow = window.open(url, "cart", "height=300, width=500");
+             else {
+                 PayPalWindow.location.href = url;
+                 PayPalWindow.focus();
+             }
+         }
+    
+    </script>
+    <style type="text/css">
+        .style1
+        {
+            width: 1572px;
+            height: 363px;
+            margin-left: 4px;
+        }
+        .style2
+        {
+            width: 133px;
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <img align="center" alt="" class="style1" src="m/b1.jpg" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="JavaScript: OpenPayPalWindow('https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=abdulazizsuliman888@gmail.com&display=1&return=www.Desktop1.com&cancel_return=www.Desktop1.com')">
+                <img alt="" class="style2" src="m/P1.jpg" />
+                </a>&nbsp;
+                    <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Managment.aspx">Managment</asp:LinkButton>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                    
+            </tr>
+        </table>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
